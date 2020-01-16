@@ -14,18 +14,18 @@ class M_kategori extends CI_Model {
     }
 
     public function add($data){
-        $this->db->insert('user', $data);
+        $this->db->insert('kategori', $data);
         
     }
 
     public function edit($data){
-        $this->db->where('id_user', $data['id_user']);
-        $this->db->update('user', $data);    
+        $this->db->where('id_kategori', $data['id_kategori']);
+        $this->db->update('kategori', $data);    
     }
 
     public function delete($data){
-        $this->db->where('id_user', $data['id_user']);
-        $this->db->delete('user', $data);    
+        $this->db->where('id_kategori', $data['id_kategori']);
+        $this->db->delete('kategori', $data);    
     }
     
 }

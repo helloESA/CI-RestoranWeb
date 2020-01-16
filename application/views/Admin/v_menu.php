@@ -27,7 +27,7 @@
                     <?php $no=1; foreach ($menu as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->kategori_idkategori++ ?></td>
+                        <td><?= $value->nama_kategori++ ?></td>
                         <td><?= $value->nama_menu++ ?></td>
                         <td><?= $value->harga_menu++ ?></td>
                         <td>
@@ -56,11 +56,10 @@
                 <div class="form-group">
                     <label>Kategori</label>
                     <select class="form-control" name="kategori_idkategori">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                            <option value="kosong">--Pilih Kategori--</option>
+                            <?php foreach ($kategori as $key => $value) { ?>
+                            <option value="<?php echo $value->id_kategori;?>"><?php echo $value->nama_kategori;?></option>
+                            <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
@@ -101,11 +100,9 @@
                 <div class="form-group">
                     <label>Kategori</label>
                     <select class="form-control" name="kategori_idkategori" value="<?= $value->kategori_idkategori ?>">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                   
+                            <option value="<?php echo $data['id_kategori'];?>"><?php echo $data['nama_kategori'];?></option>
+                       
                     </select>
                 </div>
                 <div class="form-group">

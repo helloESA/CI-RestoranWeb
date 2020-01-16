@@ -74,7 +74,6 @@
                     <select class="form-control" name="level">
                         <option>Admin</option>
                         <option>Kasir</option>
-                        <option>Pengguna</option>
                     </select>
                 </div>
                 <div class="form-group">

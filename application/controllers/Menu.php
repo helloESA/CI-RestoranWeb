@@ -10,6 +10,7 @@ class Menu extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('m_menu');
+        $this->load->model('m_kategori');
         
     }
     
@@ -20,6 +21,7 @@ class Menu extends CI_Controller {
             'title' => 'Halaman Admin',
             'title2' => 'Kelola Menu',
             'menu' =>$this->m_menu->list(),
+            'kategori' => $this->m_kategori->list(),
             'isi' => 'Admin/v_menu'
         );
         $this->load->view('Admin/layout/v_wrapper', $data, FALSE);
