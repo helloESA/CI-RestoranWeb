@@ -9,6 +9,7 @@ class M_home extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('menu');
+        $this->db->join('kategori', 'kategori.id_kategori = menu.kategori_idkategori', 'left');
         $this->db->order_by('id_menu', 'desc');
         return $this->db->get()->result();
     }

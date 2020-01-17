@@ -99,19 +99,20 @@
                 <?php echo form_open('menu/edit/'.$value->id_menu); ?>
                 <div class="form-group">
                     <label>Kategori</label>
-                    <select class="form-control" name="kategori_idkategori" value="<?= $value->kategori_idkategori ?>">
-                   
-                            <option value="<?php echo $data['id_kategori'];?>"><?php echo $data['nama_kategori'];?></option>
-                       
+                    <select class="form-control" name="kategori_idkategori">
+                            <option value="kosong">--Pilih Kategori--</option>
+                            <?php foreach ($kategori as $key => $value) { ?>
+                            <option value="<?php echo $value->id_kategori;?>"><?php echo $value->nama_kategori;?></option>
+                            <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Nama Menu</label>
-                    <input class="form-control" name="nama_menu" value="<?= $value->nama_menu ?>" placeholder="Masukkan Menu">
+                    <input class="form-control" name="nama_menu" placeholder="Masukkan Menu">
                 </div>
                 <div class="form-group">
                     <label>Harga</label>
-                    <input class="form-control" name="harga_menu" value="<?= $value->harga_menu ?>" placeholder="Masukkan Harga">
+                    <input class="form-control" name="harga_menu" placeholder="Masukkan Harga">
                 </div>
             </div>
             <div class="modal-footer">

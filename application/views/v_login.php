@@ -29,50 +29,43 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body>
-
+    <body class="bg-success">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">
+                            <h2 class="text-primary"><b><center>KEY2RESTAURANT</center></b></h2>
+                            <p class="text-dark"><center>"Hadirkan Masakan Berkelas Di Meja Anda"</center></p>
+                            <div class="panel"></div>
+                            <div class="panel"></div>
                         <div class="panel-heading">
-                            <h3 class="panel-title"> <center><b><?= $title ?></b></center>  </h3>
+                            <h3 class="panel-title"><center>Selamat Datang</center></h3>
                         </div>
                         <div class="panel-body">
                             <?php
-                                echo 
-                                form_open('login');
+                            echo form_open('login');
 
-                                if ($this->session->flashdata('pesan')) {
-                                    echo '<div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                                    echo $this->session->flashdata('pesan');
-                                    echo '</div>';
-                                }
-                                
+                            if ($this->session->flashdata('pesan')) {
+                                echo '<div class="alert alert-warning alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                                echo $this->session->flashdata('pesan');
+                                echo '</div>';
+                            }
                             ?>
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Username" name="username" type="text" autofocus required>
+                                        <input class="form-control" placeholder="username" name="username" type="text" autofocus required>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" required>
+                                        <input class="form-control" placeholder="password" name="password" type="password" required>
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-14 text-center">
-                                        <button type="submit" class="btn btn-success btn-xl btn-block">Masuk</button></br>
-                                    </div>
-                                    <div class="col-sm-14 text-center">
-                                        <a href="<?= base_url() ?>" class="btn btn-primary btn-xl btn-block">Kembali</a>
-                                    </div>
-                                <?php echo 
-                                    form_close();
-                                ?>
-                            </form>
+                                    <!-- Change this to a button or input when using this as a form -->
+                                    <button type="submit" class="btn btn-xm btn-success btn-block">Login</button>
+                                    <a href="<?= base_url() ?>" class="btn btn-xm btn-primary btn-block">Kembali</a>
+                                </fieldset>
+                            <?php
+                            echo form_close();
+                            ?>
                         </div>
                     </div>
                 </div>

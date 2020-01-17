@@ -1,5 +1,5 @@
 <?php
-$this->user_login->proteksi();
+$this->user_login->proteksi_web();
 require_once('v_head.php');
 require_once('v_header.php');
 require_once('v_nav.php');
