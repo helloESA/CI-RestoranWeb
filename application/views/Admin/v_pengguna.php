@@ -112,7 +112,7 @@
                 <?php echo form_open('pengguna/edit/'.$value->id_user); ?>
                 <div class="form-group">
                     <label>Nama Lengkap</label>
-                    <input class="form-control" name="nama_lengkap" placeholder="Masukkan Namamu">
+                    <input class="form-control" name="nama_lengkap" value="<?= $value->nama_lengkap ?>" placeholder="Masukkan Namamu">
                 </div>
                 <div class="form-group">
                     <label>Username</label>

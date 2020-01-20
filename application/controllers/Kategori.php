@@ -38,9 +38,9 @@ class Kategori extends CI_Controller {
 
     public function edit($id_kategori)
     {
-        $data = array('id_kategori'      => $id_kategori,
-            'nama_kategori'          => $this->input->post('nama_lengkap'), 
-            'keterangan_kategori'    => $this->input->post('username'));
+        $data = array('id_kategori'  => $id_kategori,
+            'nama_kategori'          => $this->input->post('nama_kategori'), 
+            'keterangan_kategori'    => $this->input->post('keterangan_kategori'));
         $this->m_kategori->edit($data);
         $this->session->set_flashdata('pesan','Data Berhasil Diubah');
         

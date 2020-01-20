@@ -88,11 +88,12 @@
                 <?php echo form_open('kategori/edit/'.$value->id_kategori); ?>
                 <div class="form-group">
                     <label>Nama Kategori</label>
-                    <input class="form-control" name="nama_kategori" placeholder="Masukkan nama kategori">
+                    <input class="form-control" type="text" name="nama_kategori" value="<?= $value->nama_kategori ?>" placeholder="Masukkan nama kategori">
                 </div>
                 <div class="form-group">
                     <label>Keterangan</label>
-                    <textarea class="form-control" name="keterangan" rows="3"></textarea>
+                    <textarea class="form-control" name="keterangan_kategori" rows="3"><?= $value->keterangan_kategori ?></textarea>
+                    
                 </div>
             </div>
             <div class="modal-footer">

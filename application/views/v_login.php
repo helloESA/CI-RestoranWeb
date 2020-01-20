@@ -36,21 +36,23 @@
                     <div class="login-panel panel panel-default">
                             <h2 class="text-primary"><b><center>KEY2RESTAURANT</center></b></h2>
                             <p class="text-dark"><center>"Hadirkan Masakan Berkelas Di Meja Anda"</center></p>
-                            <div class="panel"></div>
-                            <div class="panel"></div>
+                            <div class="panel">
+                                <?php
+                                    if ($this->session->flashdata('pesan')) {
+                                        echo '<div class="alert alert-warning alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                                        echo $this->session->flashdata('pesan');
+                                        echo '</div>';
+                                    }
+                                ?>
+                            </div>
                         <div class="panel-heading">
                             <h3 class="panel-title"><center>Selamat Datang</center></h3>
                         </div>
                         <div class="panel-body">
                             <?php
                             echo form_open('login');
-
-                            if ($this->session->flashdata('pesan')) {
-                                echo '<div class="alert alert-warning alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
-                                echo $this->session->flashdata('pesan');
-                                echo '</div>';
-                            }
+                            
                             ?>
                                 <fieldset>
                                     <div class="form-group">
