@@ -41,9 +41,9 @@ class Pengguna extends CI_Controller {
         redirect('pengguna');
     }
 
-    public function edit($id_pengguna)
+    public function edit($id_user)
     {
-        $data = array('id_user' => $id_pengguna,
+        $data = array('id_user' => $id_user,
             'nama_lengkap'      => $this->input->post('nama_lengkap'), 
             'username'          => $this->input->post('username'),
             'password'          => $this->input->post('password'),

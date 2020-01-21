@@ -35,7 +35,7 @@ class User_login
             redirect('admin');
 
         } else{
-            $this->ci->session->set_flashdata('pesan','Username/Password Salah');
+            $this->ci->session->set_flashdata('danger','Username/Password Salah');
             redirect('login');
         }
     }
@@ -43,7 +43,7 @@ class User_login
     public function proteksi_web()
     {
         if ($this->ci->session->userdata('username')==""){
-            $this->ci->session->set_flashdata('pesan','Anda Belum Login');
+            $this->ci->session->set_flashdata('danger','Anda Belum Login');
             redirect('login');
         }
     }

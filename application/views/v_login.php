@@ -39,9 +39,13 @@
                             <div class="panel">
                                 <?php
                                     if ($this->session->flashdata('pesan')) {
-                                        echo '<div class="alert alert-warning alert-dismissible">
+                                        echo '<div class="alert alert-success alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                                         echo $this->session->flashdata('pesan');
+                                        echo '</div>';
+                                    } elseif ($this->session->flashdata('danger')) {
+                                        echo '<div class="alert alert-danger alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                                        echo $this->session->flashdata('danger');
                                         echo '</div>';
                                     }
                                 ?>

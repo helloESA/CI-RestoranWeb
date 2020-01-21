@@ -26,8 +26,8 @@
                     <?php $no=1; foreach ($kategori as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_kategori++ ?></td>
-                        <td><?= $value->keterangan_kategori++ ?></td>
+                        <td><?= $value->nama_kategori ?></td>
+                        <td><?= $value->keterangan_kategori ?></td>
                         <td>
                             <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_kategori ?>"> <i class="fa fa-edit"></i> Edit</button>
                             <a href="<?= base_url('kategori/delete/'.$value->id_kategori)?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label>Keterangan</label>
-                    <textarea class="form-control" name="keterangan_kategori" rows="3"><?= $value->keterangan_kategori ?></textarea>
+                    <textarea class="form-control" name="keterangan_kategori" rows="3"> <?= $value->keterangan_kategori ?> </textarea>
                     
                 </div>
             </div>

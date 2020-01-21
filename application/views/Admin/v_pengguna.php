@@ -29,11 +29,11 @@
                     <?php $no=1; foreach ($pengguna as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_lengkap++ ?></td>
-                        <td><?= $value->username++ ?></td>
-                        <td><?= $value->level++ ?></td>
-                        <td><?= $value->alamat++ ?></td>
-                        <td><?= $value->no_telepon++ ?></td>
+                        <td><?= $value->nama_lengkap ?></td>
+                        <td><?= $value->username ?></td>
+                        <td><?= $value->level ?></td>
+                        <td><?= $value->alamat ?></td>
+                        <td><?= $value->no_telepon ?></td>
                         <td>
                             <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"> <i class="fa fa-edit"></i> Edit</button>
                             <a href="<?= base_url('pengguna/delete/'.$value->id_user)?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
@@ -116,28 +116,25 @@
                 </div>
                 <div class="form-group">
                     <label>Username</label>
-                    <input class="form-control" name="username" placeholder="Masukkan Username">
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="Masukkan Password">
+                    <input class="form-control" name="username" value="<?= $value->username ?>" placeholder="Masukkan Username">
                 </div>
                 <div class="form-group">
                     <label>Level</label>
                     <select class="form-control" name="level">
+                        <option value="<?= $value->level?>"><?= $value->level?></option>
                         <option>Admin</option>
                         <option>Kasir</option>
-                        <option>Pengguna</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Alamat</label>
-                    <textarea class="form-control" name="alamat" rows="3"></textarea>
+                    <textarea class="form-control" name="alamat" value="" rows="3"><?= $value->alamat ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>No Telepon</label>
-                    <input class="form-control" name="no_telepon" placeholder="Masukkan No Telepon">
+                    <input class="form-control" name="no_telepon" value="<?= $value->no_telepon ?>" placeholder="Masukkan No Telepon">
                 </div>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Save</button>

@@ -53,9 +53,9 @@
                     <?php $no=1; foreach ($menu as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_kategori++ ?></td>
-                        <td><?= $value->nama_menu++ ?></td>
-                        <td><?= $value->harga_menu++ ?></td>
+                        <td><?= $value->nama_kategori ?></td>
+                        <td><?= $value->nama_menu ?></td>
+                        <td><?= $value->harga_menu ?></td>
                     </tr>
                     <?php }?>
                 </tbody>

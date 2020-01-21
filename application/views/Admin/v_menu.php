@@ -27,9 +27,9 @@
                     <?php $no=1; foreach ($menu as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $value->nama_kategori++ ?></td>
-                        <td><?= $value->nama_menu++ ?></td>
-                        <td><?= $value->harga_menu++ ?></td>
+                        <td><?= $value->nama_kategori ?></td>
+                        <td><?= $value->nama_menu ?></td>
+                        <td><?= $value->harga_menu ?></td>
                         <td>
                             <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_menu ?>"> <i class="fa fa-edit"></i> Edit</button>
                             <a href="<?= base_url('menu/delete/'.$value->id_menu)?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
@@ -101,18 +101,16 @@
                     <label>Kategori</label>
                     <select class="form-control" name="kategori_idkategori">
                             <option value="kosong">--Pilih Kategori--</option>
-                            <?php foreach ($kategori as $key => $value) { ?>
-                            <option value="<?php echo $value->id_kategori;?>"><?php echo $value->nama_kategori;?></option>
-                            <?php } ?>
+                            
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Nama Menu</label>
-                    <input class="form-control" name="nama_menu" placeholder="Masukkan Menu">
+                    <input class="form-control" name="nama_menu" value="<?= $value->nama_menu ?>" placeholder="Masukkan Menu">
                 </div>
                 <div class="form-group">
                     <label>Harga</label>
-                    <input class="form-control" name="harga_menu" placeholder="Masukkan Harga">
+                    <input class="form-control" name="harga_menu" value="<?= $value->harga_menu ?>"placeholder="Masukkan Harga">
                 </div>
             </div>
             <div class="modal-footer">
