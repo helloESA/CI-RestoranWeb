@@ -23,9 +23,6 @@
                                 <a href="<?= base_url('pengguna')?>"><i class="fa fa-user fa-fw"></i> | Pengguna </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('kategori')?>"><i class="fa fa-clipboard fa-fw"></i> | Kategori </a>
-                            </li>
-                            <li>
                                 <a href="<?= base_url('pemesanan')?>"><i class="fa fa-book fa-fw"></i> | Pemesanan </a>
                             </li>
                         </ul>

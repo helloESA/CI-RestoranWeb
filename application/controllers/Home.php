@@ -10,7 +10,6 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('m_home');
-		$this->load->model('m_kategori');
 		
 	}
 	
