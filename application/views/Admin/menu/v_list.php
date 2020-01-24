@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                     <?php $no=1; foreach ($menu as $key => $value) { ?>
-                    <tr>
+                    <tr> 
                         <td><?= $no++ ?></td>
                         <td><?= $value->nama_menu ?></td>
                         <td><?= $value->keterangan_menu ?></td>

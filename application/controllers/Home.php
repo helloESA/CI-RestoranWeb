@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			'title' => 'KEY2RESTAURANT', 
+			'title' => 'SecondKey Restaurant', 
 			'title2' => 'Home', 
 			'menu'  => $this->m_home->list(),
 			'isi'   => 'Home_Front/v_home'

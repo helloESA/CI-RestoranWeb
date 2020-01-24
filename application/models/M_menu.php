@@ -18,6 +18,13 @@ class M_menu extends CI_Model {
         
     }
 
+
+    public function detail($id_menu){
+        $this->db->select('*');
+        $this->db->from('menu');
+        $this->db->where('id_menu', $id_menu);
+        return $this->db->get()->row();
+    }
     public function edit($data){
         $this->db->where('id_menu', $data['id_menu']);
         $this->db->update('menu', $data);    

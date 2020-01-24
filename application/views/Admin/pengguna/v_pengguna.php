@@ -2,6 +2,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">
             <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"> <i class="fa fa-plus"></i> Add</button>
+            <a href="<?= base_url('pengguna/print') ?>" class="btn btn-success btn-sm"> <i class="fa fa-print"></i> Print</a>
         </div>
         <div class="panel-body">
             <?php
@@ -11,9 +12,8 @@
                 echo $this->session->flashdata('pesan');
                 echo '</div>';
             }
-            
             ?>
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <tbody class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -25,8 +25,9 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php $no=1; foreach ($pengguna as $key => $value) { ?>
+            <tbody>
+                <?php $no = 1;
+                foreach ($pengguna as $key => $value) { ?>
                     <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $value->nama_lengkap ?></td>
@@ -36,12 +37,12 @@
                         <td><?= $value->no_telepon ?></td>
                         <td>
                             <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"> <i class="fa fa-edit"></i> Edit</button>
-                            <a href="<?= base_url('pengguna/delete/'.$value->id_user)?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
+                            <a href="<?= base_url('pengguna/delete/' . $value->id_user) ?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
                         </td>
                     </tr>
-                    <?php }?>
-                </tbody>
-            </table>
+                <?php } ?>
+            </tbody>
+            </tbody>
         </div>
     </div>
 </div>
@@ -52,10 +53,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Tambah Pengguna</h4>
+                <h4 class="modal-title" id="myModalLabel">Tambah Pengguna</h4>
             </div>
             <div class="modal-body">
-            <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
+                <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
                 <?php echo form_open('pengguna/add'); ?>
                 <div class="form-group">
                     <label>Nama Lengkap</label>
@@ -100,50 +101,50 @@
 
 <!-- Modal Edit-->
 <?php foreach ($pengguna as $key => $value) { ?>
-<div class="modal fade" id="edit<?= $value->id_user ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <div class="modal fade" id="edit<?= $value->id_user ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title" id="myModalLabel">Ubah Pengguna</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
+                    <?php echo form_open('pengguna/edit/' . $value->id_user); ?>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input class="form-control" name="nama_lengkap" value="<?= $value->nama_lengkap ?>" placeholder="Masukkan Namamu">
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input class="form-control" name="username" value="<?= $value->username ?>" placeholder="Masukkan Username">
+                    </div>
+                    <div class="form-group">
+                        <label>Level</label>
+                        <select class="form-control" name="level">
+                            <option value="<?= $value->level ?>"><?= $value->level ?></option>
+                            <option>Admin</option>
+                            <option>Kasir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" name="alamat" value="" rows="3"><?= $value->alamat ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>No Telepon</label>
+                        <input class="form-control" name="no_telepon" value="<?= $value->no_telepon ?>" placeholder="Masukkan No Telepon">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                <?php echo form_close(); ?>
             </div>
-            <div class="modal-body">
-            <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. -->
-                <?php echo form_open('pengguna/edit/'.$value->id_user); ?>
-                <div class="form-group">
-                    <label>Nama Lengkap</label>
-                    <input class="form-control" name="nama_lengkap" value="<?= $value->nama_lengkap ?>" placeholder="Masukkan Namamu">
-                </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input class="form-control" name="username" value="<?= $value->username ?>" placeholder="Masukkan Username">
-                </div>
-                <div class="form-group">
-                    <label>Level</label>
-                    <select class="form-control" name="level">
-                        <option value="<?= $value->level?>"><?= $value->level?></option>
-                        <option>Admin</option>
-                        <option>Kasir</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Alamat</label>
-                    <textarea class="form-control" name="alamat" value="" rows="3"><?= $value->alamat ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label>No Telepon</label>
-                    <input class="form-control" name="no_telepon" value="<?= $value->no_telepon ?>" placeholder="Masukkan No Telepon">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-            <?php echo form_close(); ?>
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
 <?php } ?>
 <!-- /.modal -->

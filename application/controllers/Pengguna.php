@@ -19,7 +19,7 @@ class Pengguna extends CI_Controller {
             'title' => 'Halaman Admin',
             'title2' => 'Kelola Pengguna',
             'pengguna' =>$this->m_pengguna->list(),
-            'isi' => 'Admin/v_pengguna'
+            'isi' => 'Admin/pengguna/v_pengguna'
         );
         $this->load->view('Admin/layout/v_wrapper', $data, FALSE);
         
@@ -64,6 +64,16 @@ class Pengguna extends CI_Controller {
         $this->session->set_flashdata('pesan','Data Berhasil Dihapus');
         
         redirect('pengguna');
+    }
+
+    public function print(){
+        $data = array(
+            'title' => 'Halaman Admin',
+            'title2' => 'Data Pengguna',
+            'pengguna' =>$this->m_pengguna->list(),
+            'isi' => 'Admin/pengguna/v_print'
+        );
+        $this->load->view('Admin/layout/v_wrapper', $data, FALSE);
     }
 
 }
