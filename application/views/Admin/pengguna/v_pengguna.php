@@ -13,7 +13,7 @@
                 echo '</div>';
             }
             ?>
-            <tbody class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -25,24 +25,24 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-            <tbody>
-                <?php $no = 1;
-                foreach ($pengguna as $key => $value) { ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $value->nama_lengkap ?></td>
-                        <td><?= $value->username ?></td>
-                        <td><?= $value->level ?></td>
-                        <td><?= $value->alamat ?></td>
-                        <td><?= $value->no_telepon ?></td>
-                        <td>
-                            <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"> <i class="fa fa-edit"></i> Edit</button>
-                            <a href="<?= base_url('pengguna/delete/' . $value->id_user) ?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-            </tbody>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($pengguna as $key => $value) { ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $value->nama_lengkap ?></td>
+                            <td><?= $value->username ?></td>
+                            <td><?= $value->level ?></td>
+                            <td><?= $value->alamat ?></td>
+                            <td><?= $value->no_telepon ?></td>
+                            <td>
+                                <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#edit<?= $value->id_user ?>"> <i class="fa fa-edit"></i> Edit</button>
+                                <a href="<?= base_url('pengguna/delete/' . $value->id_user) ?>" onclick="return confirm('Apakah data ini akan dihapus?')" class="btn btn-xs btn-danger"> <i class="fa fa-remove"></i> Delete</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

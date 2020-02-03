@@ -10,12 +10,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
+      <?php
+      $jml = $this->db->query("select count(*) as jml from pemesanan")->row()->jml;
+      $home = "";
+      $menu = "";
+      $pesanan = "";
+      if ($title2 == "Home") {
+        $home = "active";
+      } else if ($title2 == "Menu") {
+        $menu = "active";
+      } else if ($title2 == "Pesanan") {
+        $pesanan = "active";
+      }
+      ?>
       <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
         <ul class="nav navbar-nav menu_nav justify-content-end">
-          <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="<?= base_url('home/menu_tampil') ?>">Menu</a>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item <?= $home; ?>"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item <?= $menu; ?>"><a class="nav-link" href="<?= base_url('home/menu_tampil') ?>">Menu</a>
+          <li class="nav-item <?= $pesanan; ?>"><a class="nav-link" href="<?= base_url('home/listpesanan') ?>">Pesanan (<?= $jml; ?>)</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= base_url('login') ?>">Login</a>
         </ul>
       </div>

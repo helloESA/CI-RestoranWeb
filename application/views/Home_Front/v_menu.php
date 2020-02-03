@@ -12,7 +12,7 @@
                     <h5 class="card-title mb-1"><?= $value->nama_menu ?></h5>
                     <small>"<?= $value->keterangan_menu ?>"</small><br>
                     <span class="badge badge-pill mb-3 badge-dark">Rp. <?= $value->harga_menu ?></span><br>
-                    <a href="#" class="btn btn-sm btn-primary">Pesan</a>
+                    <a href="<?= base_url(); ?>home/pesan/<?= $value->id_menu ?>" class="btn btn-sm btn-primary">Pesan</a>
                 </div>
             </div>
         <?php } ?>
