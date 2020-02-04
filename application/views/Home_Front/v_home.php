@@ -4,7 +4,7 @@
      <div class="hero-left">
        <h2 class="hero-title">Masakan <br> yang bikin Anda ketagihan</h2>
        <div class="d-sm-flex flex-wrap">
-         <btn class="button button-hero btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Pesan Sekarang</btn>
+         <a href="<?= base_url('home/menu_tampil') ?>" class="button button-hero btn btn-info btn-sm">Pesan Sekarang</a>
 
        </div>
 
@@ -36,6 +36,6 @@
 
  <!--================Food menu section start =================-->
  <section class="section-margin">
-  
+
  </section>
  <!--================Food menu section end =================-->

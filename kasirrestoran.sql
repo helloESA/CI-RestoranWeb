@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2020 at 12:21 PM
+-- Generation Time: Feb 04, 2020 at 07:20 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -25,35 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
---
-
-CREATE TABLE `kategori` (
-  `id_kategori` int(12) NOT NULL,
-  `nama_kategori` varchar(50) NOT NULL,
-  `keterangan_kategori` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `kategori`
---
-
-INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `keterangan_kategori`) VALUES
-(2, 'Makanan Keras', '-'),
-(3, 'Makanan Ringan', '-');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
   `id_menu` int(12) NOT NULL,
-  `kategori_idkategori` int(12) NOT NULL,
   `nama_menu` varchar(50) NOT NULL,
-  `harga_menu` int(13) NOT NULL
+  `keterangan_menu` text NOT NULL,
+  `harga_menu` int(13) NOT NULL,
+  `gambar_menu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`id_menu`, `nama_menu`, `keterangan_menu`, `harga_menu`, `gambar_menu`) VALUES
+(13, 'Mie Tektek', '-', 10000, 'mie-tektek.png'),
+(15, 'Tahu Bulat', '-', 500, 'resep-tahu-bulat.jpg'),
+(16, 'Ayam Geprek', 'Bikin Lidah Ketagihan', 9000, 'images.jpg'),
+(17, 'Beef Steak', '-', 25000, 'images1.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,6 +59,14 @@ CREATE TABLE `pemesanan` (
   `waktu_pesan` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pemesanan`
+--
+
+INSERT INTO `pemesanan` (`id_pemesanan`, `menu_idmenu`, `jumlah_menu`, `waktu_pesan`) VALUES
+(18, 16, 1, '2020-02-04 05:23:52'),
+(19, 13, 1, '2020-02-04 05:23:54');
+
 -- --------------------------------------------------------
 
 --
@@ -76,7 +75,7 @@ CREATE TABLE `pemesanan` (
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(12) NOT NULL,
-  `menu_idmenu` int(12) NOT NULL,
+  `pemesanan_idpemesanan` int(12) NOT NULL,
   `harga_total` int(13) NOT NULL,
   `kembalian` int(13) NOT NULL,
   `waktu_bayar` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -112,12 +111,6 @@ INSERT INTO `user` (`id_user`, `nama_lengkap`, `username`, `password`, `level`, 
 --
 
 --
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
-  ADD PRIMARY KEY (`id_kategori`);
-
---
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
@@ -135,7 +128,7 @@ ALTER TABLE `pemesanan`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
-  ADD KEY `menu_idmenu` (`menu_idmenu`);
+  ADD KEY `menu_idmenu` (`pemesanan_idpemesanan`);
 
 --
 -- Indexes for table `user`
@@ -148,22 +141,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_menu` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pemesanan` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `transaksi`

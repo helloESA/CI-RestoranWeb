@@ -34,7 +34,7 @@ class Menu extends CI_Controller
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']          = './gambar_menu/';
-            // $config['allowed_types']        = 'gif|jpg|png';
+            $config['allowed_types']        = 'gif|jpg|png';
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('gambar_menu')) {
@@ -99,6 +99,11 @@ class Menu extends CI_Controller
                 $config['image_library']    = 'gd2';
                 $config['source_image']     = './gambar_menu/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
+                //menghapus foto lama
+                $menu = $this->m_menu->detail($id_menu);
+                if ($menu->gambar_menu != "") {
+                    unlink('./gambar_menu/' . $menu->gambar_menu);
+                }
 
                 $data = array(
                     'id_menu'           => $id_menu,

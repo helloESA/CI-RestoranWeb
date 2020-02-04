@@ -1,15 +1,15 @@
 <?php
 
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pemesanan extends CI_Controller {
+class Pemesanan extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
         $this->load->model('m_pemesanan');
-        
     }
 
     public function index()
@@ -17,7 +17,7 @@ class Pemesanan extends CI_Controller {
         $data = array(
             'title' => 'Halaman Admin',
             'title2' => 'Pemesanan',
-            'pesanan' =>$this->m_pemesanan->list(),
+            'pesanan' => $this->m_pemesanan->list(),
             'isi' => 'Admin/v_pesanan'
         );
         $this->load->view('Admin/layout/v_wrapper', $data, FALSE);
@@ -32,7 +32,7 @@ class Pemesanan extends CI_Controller {
     //                 'harga_menu' => $this->input->post('harga_menu'));
     //     $this->m_menu->add($data);
     //     $this->session->set_flashdata('pesan','Data Berhasil Ditambahkan');
-        
+
     //     redirect('menu');
     // }
 
@@ -40,11 +40,10 @@ class Pemesanan extends CI_Controller {
     {
         $data = array('id_pemesanan' => $id_pemesanan);
         $this->m_pemesanan->delete($data);
-        $this->session->set_flashdata('pesan','Pesanan Berhasil Diproses');
-        
-        redirect('pesanan');
-    }
+        $this->session->set_flashdata('pesan', 'Pesanan Berhasil Diproses');
 
+        redirect('pemesanan');
+    }
 }
 
 /* End of file Pemesanan.php */

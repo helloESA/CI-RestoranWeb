@@ -36,13 +36,28 @@ class Home extends CI_Controller
 		);
 		$this->load->view('Home_Front/layout/v_wrapper', $data, FALSE);
 	}
+
+	public function addtocart($id_menu)
+	{
+		$menu = $this->m_home->find($id_menu);
+		
+
+		$data = array(
+			'menu_idmenu'     	=> $menu->id_menu,
+			'jumlah_menu'   	=> 1
+		);
+
+		$this->cart->insert($data);
+		redirect('home/menu_tampil');
+	}
+
+
 	public function listpesanan()
 	{
 		$data = array(
 			'title' => 'SecondKey Restaurant',
 			'title2' => 'Pesanan',
-			'pesanan' => $this->db->query("select t2.*,t1.jumlah_menu from pemesanan as t1
-			left outer join menu as t2 on t1.menu_idmenu=t2.id_menu;")->result(),
+			'pesanan' => $this->m_home->listpesan(),
 			'isi'   => 'Home_Front/v_listpesanan'
 
 		);
